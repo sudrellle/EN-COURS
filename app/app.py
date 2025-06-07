@@ -31,3 +31,24 @@ pg = st.navigation([
     st.Page(page2, title="Second page", icon=":material/thumb_up:"),
 ])
 pg.run()
+
+  """if validation:
+        if len(Mot_de_passe)<8:
+            st.markdown("""
+            <div style='color: red; font-weight: bold;'>
+                #❌ Le mot de passe doit contenir au moins 8 caractères.
+            </div>
+            """, unsafe_allow_html=True)
+          
+        else:
+            progress_text = "chargement de la page."
+            my_bar = st.progress(0, text=progress_text)
+
+            for percent_complete in range(100):
+                time.sleep(0.01)
+                my_bar.progress(percent_complete + 1, text=progress_text)
+            time.sleep(1)
+            st.empty()"""
+
+
+                

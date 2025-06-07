@@ -20,30 +20,30 @@ with st.container(border=True):
 
     if validation:
     # Vérification du nom
-    if not nom.strip():
-        st.error('❌ Veuillez saisir votre nom')
-    
-    # Vérification du mot de passe
-    elif len(Mot_de_passe.strip()) < 8:
-        st.error("❌ Le mot de passe doit contenir au moins 8 caractères.")
-    
-    # Vérification du rôle
-    elif not option:
-        st.warning("⚠️ Veuillez sélectionner un rôle.")
-    
-    # Si tout est OK
-    else:
-        with st.spinner("🔄 Connexion en cours..."):
-            time.sleep(1.5)
+        if not nom.strip():
+            st.error('❌ Veuillez saisir votre nom')
+        
+        # Vérification du mot de passe
+        elif len(Mot_de_passe.strip()) < 8:
+            st.error("❌ Le mot de passe doit contenir au moins 8 caractères.")
+        
+        # Vérification du rôle
+        elif not option:
+            st.warning("⚠️ Veuillez sélectionner un rôle.")
+        
+        # Si tout est OK
+        else:
+            with st.spinner("🔄 Connexion en cours..."):
+                time.sleep(1.5)
 
-        # ✅ Toast de confirmation
-        st.toast("✅ Connexion réussie", icon="🎉")
+            # ✅ Toast de confirmation
+            st.toast("✅ Connexion réussie", icon="🎉")
 
-        # ⏳ Attente rapide avant redirection
-        time.sleep(1)
+            # ⏳ Attente rapide avant redirection
+            time.sleep(1)
 
-        # 🚀 Redirection selon le rôle
-        if option == "Gestionnaire":
-            st.switch_page("Gestionnaire")
-        elif option == "Administrateur":
-            st.switch_page("Administrateur")
+            # 🚀 Redirection selon le rôle
+            if option == "Gestionnaire":
+                st.switch_page("Gestionnaire")
+            elif option == "Administrateur":
+                st.switch_page("Administrateur")

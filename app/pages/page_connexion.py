@@ -1,12 +1,6 @@
 import streamlit as st
 import time
-st.markdown("""
-    <style>
-        [data-testid="stSidebar"] {
-            display: none;
-        }
-    </style>
-""", unsafe_allow_html=True)
+
 
 st.title('🔐 Page de connexion')
 with st.container(border=True):

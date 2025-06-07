@@ -49,33 +49,33 @@ st.markdown("""
                 st.switch_page("pages/Gestionnaire.py")
             elif role == "Administrateur":
                 st.switch_page("pages/Administrateur.py")"""
+with st.container:
+    st.title("🔐 Page de connexion")
 
-st.title("🔐 Page de connexion")
+    username = st.text_input("Nom d'utilisateur", placeholder="Entrer votre nom d'utilisateur")
+    mot_de_passe = st.text_input("Mot de passe", type="password", placeholder="Entrer votre mot de passe")
+    role = st.selectbox("Rôle", ["Gestionnaire", "Administrateur"], index=None, placeholder="Choisissez un rôle...")
 
-username = st.text_input("Nom d'utilisateur", placeholder="Entrer votre nom d'utilisateur")
-mot_de_passe = st.text_input("Mot de passe", type="password", placeholder="Entrer votre mot de passe")
-role = st.selectbox("Rôle", ["Gestionnaire", "Administrateur"], index=None, placeholder="Choisissez un rôle...")
-
-if st.button("Valider", use_container_width=True):
-    if not username.strip():
-        st.error("❌ Veuillez saisir votre nom d'utilisateur")
-    elif len(mot_de_passe.strip()) < 8:
-        st.error("❌ Le mot de passe doit contenir au moins 8 caractères")
-    elif not role:
-        st.warning("⚠️ Veuillez sélectionner un rôle")
-    else:
-        with st.spinner("Connexion en cours..."):
-            time.sleep(1.5)
-        if verifier_connexion(username.strip(), mot_de_passe.strip(), role):
-            st.session_state['username'] = username.strip()
-            st.session_state['role'] = role
-
-            st.toast("✅ Connexion réussie", icon="🎉")
-            time.sleep(1)
-
-            if role == "Gestionnaire":
-                st.switch_page("Gestionnaire")  # sans extension ni dossier (car pages/Gestionnaire.py)
-            elif role == "Administrateur":
-                st.switch_page("Administrateur")
+    if st.button("Valider", use_container_width=True):
+        if not username.strip():
+            st.error("❌ Veuillez saisir votre nom d'utilisateur")
+        elif len(mot_de_passe.strip()) < 8:
+            st.error("❌ Le mot de passe doit contenir au moins 8 caractères")
+        elif not role:
+            st.warning("⚠️ Veuillez sélectionner un rôle")
         else:
-            st.error("❌ Nom d'utilisateur, mot de passe ou rôle incorrect")
+            with st.spinner("Connexion en cours..."):
+                time.sleep(1.5)
+            if verifier_connexion(username.strip(), mot_de_passe.strip(), role):
+                st.session_state['username'] = username.strip()
+                st.session_state['role'] = role
+
+                st.toast("✅ Connexion réussie", icon="🎉")
+                time.sleep(1)
+
+                if role == "Gestionnaire":
+                    st.switch_page("Gestionnaire")  # sans extension ni dossier (car pages/Gestionnaire.py)
+                elif role == "Administrateur":
+                    st.switch_page("Administrateur")
+            else:
+                st.error("❌ Nom d'utilisateur, mot de passe ou rôle incorrect")

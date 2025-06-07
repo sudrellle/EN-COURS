@@ -4,7 +4,7 @@ import time
 st.title('🔐 Page de connexion')
 with st.container(border=True):
     
-    st.title('Page de connexion')
+    
     nom=st.text_input(label='Nom',placeholder='Entrer votre nom')
     Mot_de_passe=st.text_input(label='Mot de passe',placeholder='Entrer votre Mot de passe',type='password')
     option=st.selectbox("Role",

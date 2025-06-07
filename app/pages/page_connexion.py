@@ -3,17 +3,7 @@ import time
 
 st.title('🔐 Page de connexion')
 with st.container(border=True):
-    st.markdown("""
-        <div style="
-            background-color: #f0f8ff;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-        ">
-            <h2 style="text-align:center;">Page de Connexion</h2>
-        </div>
-    """,
-    unsafe_allow_html=True)
+    
     
     
     
@@ -52,6 +42,6 @@ with st.container(border=True):
             time.sleep(1)
 
             if option == "Gestionnaire":
-                st.switch_page("./pages/Gestionnaire.py")
+                st.switch_page("Gestionnaire")
             elif option == "Administrateur":
                 st.switch_page("Administrateur")

@@ -31,6 +31,6 @@ with st.container(border=True):
 
             # Redirection selon le rôle
             if option == "Gestionnaire":
-                st.switch_page("./pages/Gestionnaire.py")
+                st.switch_page("Gestionnaire.py")
             elif option == "Administrateur":
-                st.switch_page("pages/Administrateur.py")
+                st.switch_page("Administrateur.py")

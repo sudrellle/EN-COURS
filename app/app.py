@@ -8,6 +8,11 @@ def page2():
     st.subheader('Slider')
     age=st.slider('Quel age as tu?',0,100,25)
     st.write('j\'ai',age,'ans')
+    values = st.slider(
+     'Select a range of values',
+     0.0, 100.0, (25.0, 75.0))
+    st.write('Values:', values)
+
 
 pg = st.navigation([
     st.Page("pages/page1.py", title="Accueil", icon=":material/home:"),

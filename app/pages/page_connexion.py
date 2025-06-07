@@ -30,20 +30,16 @@ with st.container(border=True):
         # Vérification du rôle
         elif not option:
             st.warning("⚠️ Veuillez sélectionner un rôle.")
-        
-        # Si tout est OK
+
         else:
             with st.spinner("🔄 Connexion en cours..."):
                 time.sleep(1.5)
 
-            # ✅ Toast de confirmation
             st.toast("✅ Connexion réussie", icon="🎉")
 
-            # ⏳ Attente rapide avant redirection
             time.sleep(1)
 
-            # 🚀 Redirection selon le rôle
             if option == "Gestionnaire":
-                st.switch_page("Gestionnaire.py")
+                st.switch_page("./pages/Gestionnaire.py")
             elif option == "Administrateur":
                 st.switch_page("Administrateur")

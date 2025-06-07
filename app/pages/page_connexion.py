@@ -4,19 +4,16 @@ import time
 st.title('🔐 Page de connexion')
 with st.container(border=True):
     st.markdown("""
-    <div style="
-        background-image: url('https://images.unsplash.com/photo-1508780709619-79562169bc64');
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
-        padding: 40px;
-        border-radius: 20px;
-        color: white;
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-    ">
-        <h2 style="text-align:center;">Bienvenue sur votre application</h2>
-    </div>
-""", unsafe_allow_html=True)
+        <div style="
+            background-color: #f0f8ff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        ">
+            <h2 style="text-align:center;">Page de Connexion</h2>
+        </div>
+    """,
+    unsafe_allow_html=True)
     
     
     

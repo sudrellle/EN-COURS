@@ -1,7 +1,37 @@
 import streamlit as st
-import numpy as np
-import pandas as pd
 import time
-st.spinner('Chargement')
-time.sleep(5)
-st.switch_page("pages/page_connexion.py")
+
+# Masquer la sidebar
+hide_style = """
+    <style>
+        #MainMenu {visibility: hidden;}
+        footer {visibility: hidden;}
+        header {visibility: hidden;}
+        .css-1d391kg {display: none;}
+    </style>
+"""
+st.markdown(hide_style, unsafe_allow_html=True)
+
+# Interface de connexion
+st.title("🔐 Page de connexion")
+
+nom = st.text_input("Nom")
+mot_de_passe = st.text_input("Mot de passe", type="password")
+role = st.selectbox("Rôle", ["Gestionnaire", "Administrateur"], index=None, placeholder="Choisissez un rôle...")
+
+if st.button("Valider"):
+    if not nom.strip():
+        st.error("❌ Veuillez saisir votre nom")
+    elif len(mot_de_passe.strip()) < 8:
+        st.error("❌ Le mot de passe doit contenir au moins 8 caractères")
+    elif not role:
+        st.warning("⚠️ Veuillez sélectionner un rôle")
+    else:
+        with st.spinner("Connexion en cours..."):
+            time.sleep(1.5)
+        st.toast("✅ Connexion réussie", icon="🎉")
+        time.sleep(1)
+        if role == "Gestionnaire":
+            st.switch_page("pages/Gestionnaire.py")
+        elif role == "Administrateur":
+            st.switch_page("pages/Administrateur.py")

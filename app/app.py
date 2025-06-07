@@ -13,6 +13,18 @@ def page2():
      'Select a range of values',
      0.0, 100.0, (25.0, 75.0))
     st.write('Values:', values)
+    st.header('Line chart')
+
+    chart_data = pd.DataFrame(
+        np.random.randn(20, 3),
+        columns=['a', 'b', 'c'])
+    
+    dataframe,line_chart=st.tabs(['dataframe','line_chart'])
+    with dataframe:
+        st.write('voici le dataframe',chart_data)
+    with line_chart : 
+       
+      st.line_chart(chart_data)
     
 pg = st.navigation([
     st.Page("pages/page1.py", title="Accueil", icon=":material/home:"),

@@ -19,18 +19,31 @@ with st.container(border=True):
     oubli=droit.button('Mot de passe oublié',use_container_width=True,icon=":material/password:")
 
     if validation:
-        if nom=="":           
-            st.error('Veuillez saisir votre nom')  
-        elif len(Mot_de_passe) < 8:
-            st.error("❌ Le mot de passe doit contenir au moins 8 caractères.")
-        elif not option:
-            st.warning("⚠️ Veuillez sélectionner un rôle.")
-        else:
-            with st.spinner("🔄 Connexion en cours..."):
-                time.sleep(1)
+    # Vérification du nom
+    if not nom.strip():
+        st.error('❌ Veuillez saisir votre nom')
+    
+    # Vérification du mot de passe
+    elif len(Mot_de_passe.strip()) < 8:
+        st.error("❌ Le mot de passe doit contenir au moins 8 caractères.")
+    
+    # Vérification du rôle
+    elif not option:
+        st.warning("⚠️ Veuillez sélectionner un rôle.")
+    
+    # Si tout est OK
+    else:
+        with st.spinner("🔄 Connexion en cours..."):
+            time.sleep(1.5)
 
-            # Redirection selon le rôle
-            if option == "Gestionnaire":
-                st.switch_page("Gestionnaire.py")
-            elif option == "Administrateur":
-                st.switch_page("Administrateur.py")
+        # ✅ Toast de confirmation
+        st.toast("✅ Connexion réussie", icon="🎉")
+
+        # ⏳ Attente rapide avant redirection
+        time.sleep(1)
+
+        # 🚀 Redirection selon le rôle
+        if option == "Gestionnaire":
+            st.switch_page("Gestionnaire")
+        elif option == "Administrateur":
+            st.switch_page("Administrateur")

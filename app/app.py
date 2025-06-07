@@ -49,7 +49,7 @@ st.markdown("""
                 st.switch_page("pages/Gestionnaire.py")
             elif role == "Administrateur":
                 st.switch_page("pages/Administrateur.py")"""
-with st.container:
+with st.container(border=True):
     st.title("🔐 Page de connexion")
 
     username = st.text_input("Nom d'utilisateur", placeholder="Entrer votre nom d'utilisateur")
